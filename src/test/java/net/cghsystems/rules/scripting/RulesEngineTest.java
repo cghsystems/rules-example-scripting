@@ -25,7 +25,7 @@ public class RulesEngineTest {
     @Test
     public void shouldExecuteJavascriptRule() throws ScriptException {
         String rule = "1";
-        Object actual = unit.evalute(rule);
+        Object actual = unit.evaluate(rule);
         Assert.assertEquals(1.0, actual);
     }
 
@@ -40,7 +40,7 @@ public class RulesEngineTest {
     public void shouldExecuteJavascriptRuleAndReturnAnActionObject()
             throws ScriptException {
         String rule = "importPackage(net.cghsystems.rules.scripting); new DefaultAction()";
-        Action actual = (Action) unit.evalute(rule);
+        Action actual = (Action) unit.evaluate(rule);
         Assert.assertEquals(DefaultAction.DEFAULT_RESULT, actual.execute());
     }
 
@@ -56,7 +56,7 @@ public class RulesEngineTest {
     public void shouldExecuteJavascriptRuleWithArguementsAndReturnTheExpectedObject()
             throws ScriptException {
         String rule = "importPackage(net.cghsystems.rules.scripting); if(variable==true) { new DefaultAction() } else { 'error' }";
-        Action actual = (Action) unit.evalute(rule, TRUE);
+        Action actual = (Action) unit.evaluate(rule, TRUE);
         Assert.assertEquals(DefaultAction.DEFAULT_RESULT, actual.execute());
     }
 
@@ -72,7 +72,7 @@ public class RulesEngineTest {
     public void shouldExecuteJavascriptRuleWithArguementsAndReturnUnexpectedObject()
             throws ScriptException {
         String rule = "importPackage(net.cghsystems.rules.scripting); if(variable==true) { new Action() } else { 'error' }";
-        String actual = (String) unit.evalute(rule, "wrong");
+        String actual = (String) unit.evaluate(rule, "wrong");
         Assert.assertEquals("error", actual);
     }
 

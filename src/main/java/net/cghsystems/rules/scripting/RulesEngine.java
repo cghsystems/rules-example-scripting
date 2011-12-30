@@ -27,13 +27,14 @@ public class RulesEngine {
 
     /**
      * Delegate to {@link ScriptEngine#eval(String)}
+     * <p>
      * 
      * @param The
      *            script language source to be executed.
      * @return The value returned from the execution of the script.
      * @throws ScriptException
      */
-    public Object evalute(String rule) throws ScriptException {
+    public Object evaluate(String rule) throws ScriptException {
         return scriptEngine.eval(rule);
     }
 
@@ -46,11 +47,11 @@ public class RulesEngine {
      * @return The value returned from the execution of the script.
      * @throws ScriptException
      */
-    public Object evalute(String rule, Object argument) throws ScriptException {
+    public Object evaluate(String rule, Object argument) throws ScriptException {
         // Can also use Bindings implementation to pass arguments directly in to
-        // eval method
+        // evaluate method
         scriptEngine.put("variable", argument);
-        return evalute(rule);
+        return evaluate(rule);
     }
 
     /**
@@ -83,7 +84,7 @@ public class RulesEngine {
      */
     public Object evaluateFunction(String rule, String functionName,
             Object... arguments) throws ScriptException, NoSuchMethodException {
-        evalute(rule);
+        evaluate(rule);
         Invocable invocable = (Invocable) scriptEngine;
         return invocable.invokeFunction(functionName, arguments);
     }
@@ -100,7 +101,7 @@ public class RulesEngine {
      * @throws ScriptException
      */
     public Action getActionInterface(String rule) throws ScriptException {
-        evalute(rule);
+        evaluate(rule);
         Invocable invocable = (Invocable) scriptEngine;
         return invocable.getInterface(Action.class);
     }
