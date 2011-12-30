@@ -1,1 +1,3 @@
-A small showcase of JSR-223 or the Java scripting API's. The Scriptng API is demostrated using JavaScript scripts as they are supported out of the box with Java 1.6 onwards. The scripts could easily be switched to use any other Scripting language that provides support JSr-222.
+A small showcase of JSR-223 or the Java scripting API's. 
+
+The Scriptng API is demostrated using JavaScript scripts as they are supported out of the box with Java 1.6 onwards. The scripts could easily be switched to use any other Scripting language that provides support JSr-222.
