@@ -1,0 +1,4 @@
+== rules-examples
+
+A skunk works project containing examples of how to use 
+http://www.jcp.org/en/jsr/detail?id=223[Scripting for the Java platform]
